@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tanish Saroj — AI Engineer</title>
+<meta name="description" content="Tanish Saroj — AI/LLM Engineer. SIH 2025 National Winner. Building autonomous AI agents. Mumbai.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --paper:     #f2ead8;
+  --paper-dark:#e8ddc4;
+  --paper-mid: #ede4cc;
+  --ink:       #1c1812;
+  --ink-soft:  #3d3628;
+  --ink-muted: #7a6f5e;
+  --ink-faint: #a89f8c;
+  --rule:      #c4b99a;
+  --rule-dark: #a89270;
+  --red:       #8b1a1a;
+  --red-light: #b02020;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'EB Garamond', Georgia, serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 999;
+  background-image: 
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.5;
+}
+
+/* subtle vignette */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 998;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(28,24,18,0.08) 100%);
+}
+
+/* ─── MASTHEAD ─── */
+.masthead {
+  border-bottom: 3px double var(--rule-dark);
+  padding: 2rem 0 1rem;
+  text-align: center;
+  position: relative;
+}
+
+.masthead-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.masthead-meta {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.masthead-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.2rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+  color: var(--ink);
+  margin-bottom: 0.3rem;
+}
+
+.masthead-subtitle {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.06em;
+  margin-bottom: 0.9rem;
+}
+
+.masthead-rule-wrap {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.masthead-band {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Courier Prime', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 0.3rem 0;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+
+/* ─── NAV ─── */
+nav {
+  border-bottom: 1px solid var(--rule);
+  padding: 0.5rem 0;
+  text-align: center;
+  background: var(--paper-mid);
+}
+
+.nav-inner {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  list-style: none;
+}
+
+nav a {
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-muted);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+nav a:hover { color: var(--red); }
+
+/* ─── LAYOUT ─── */
+.page {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+/* ─── SECTION HEADERS ─── */
+.section-head {
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding: 0.3rem 0;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: var(--ink);
+}
+
+.section-num {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: var(--ink-faint);
+  letter-spacing: 0.06em;
+}
+
+/* ─── HERO / ABOVE FOLD ─── */
+.hero {
+  padding: 2.5rem 0 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.hero-left {
+  padding-right: 2rem;
+  border-right: 1px solid var(--rule);
+}
+
+.hero-right {
+  padding-left: 2rem;
+}
+
+.hero-kicker {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--red);
+  margin-bottom: 0.6rem;
+}
+
+.hero-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.9rem, 3.5vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.hero-headline em {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.hero-body {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+}
+
+.hero-body::first-letter {
+  font-family: 'Playfair Display', serif;
+  font-size: 3.2rem;
+  font-weight: 700;
+  float: left;
+  line-height: 0.85;
+  margin-right: 0.1rem;
+  margin-top: 0.15rem;
+  color: var(--ink);
+}
+
+.byline {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border-top: 1px solid var(--rule);
+  padding-top: 0.6rem;
+  margin-top: 0.8rem;
+}
+
+/* Hero right — facts column */
+.fact-block {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--rule);
+}
+.fact-block:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+.fact-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.2rem;
+}
+
+.fact-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--ink);
+}
+
+.fact-sub {
+  font-size: 0.85rem;
+  font-style: italic;
+  color: var(--ink-muted);
+  margin-top: 0.1rem;
+}
+
+/* Award callout */
+.award-box {
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.award-box-label {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--paper-dark);
+  margin-bottom: 0.3rem;
+}
+
+.award-box-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+/* ─── PROJECTS ─── */
+#projects { padding: 2rem 0; }
+
+.projects-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+}
+
+.project-item {
+  padding: 1.25rem 1.5rem 1.25rem 0;
+  border-bottom: 1px solid var(--rule);
+}
+
+.project-item:nth-child(even) {
+  padding-left: 1.5rem;
+  padding-right: 0;
+  border-left: 1px solid var(--rule);
+}
+
+.project-item:nth-last-child(-n+2) { border-bottom: none; }
+
+.proj-kicker {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.3rem;
+}
+
+.proj-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.15rem;
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.proj-badge {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  background: var(--red);
+  color: var(--paper);
+  padding: 0.1rem 0.4rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-weight: 700;
+  vertical-align: middle;
+}
+
+.proj-stack {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: var(--ink-muted);
+  letter-spacing: 0.04em;
+  margin-bottom: 0.6rem;
+}
+
+.proj-desc {
+  font-size: 0.92rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin-bottom: 0.75rem;
+}
+
+.proj-links {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.proj-link {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10.5px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  border-bottom: 1px solid var(--rule-dark);
+  padding-bottom: 1px;
+  letter-spacing: 0.04em;
+  transition: color 0.15s, border-color 0.15s;
+}
+.proj-link:hover { color: var(--red); border-color: var(--red); }
+.proj-link.live { color: var(--red-light); border-color: var(--red-light); }
+
+/* ─── SKILLS ─── */
+#skills { padding: 2rem 0; border-top: 1px solid var(--rule); }
+
+.skills-cols {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+}
+
+.skill-col {
+  padding-right: 1.25rem;
+  border-right: 1px solid var(--rule);
+}
+.skill-col:last-child { border-right: none; padding-right: 0; padding-left: 1.25rem; }
+.skill-col:nth-child(2),
+.skill-col:nth-child(3) { padding-left: 1.25rem; }
+
+.skill-head {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.6rem;
+}
+
+.skill-item {
+  font-size: 0.88rem;
+  line-height: 1.9;
+  color: var(--ink-soft);
+  display: block;
+}
+
+/* ─── CREDENTIALS ─── */
+#credentials { padding: 2rem 0; border-top: 1px solid var(--rule); }
+
+.creds-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border: 1px solid var(--rule-dark);
+  overflow: hidden;
+}
+
+.cred-item {
+  background: var(--paper);
+  padding: 0.9rem 1.1rem;
+  border-right: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  transition: background 0.15s;
+}
+.cred-item:hover { background: var(--paper-mid); }
+.cred-item:nth-child(3n) { border-right: none; }
+.cred-item:nth-last-child(-n+3) { border-bottom: none; }
+
+.cred-issuer {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--ink-faint);
+  margin-bottom: 0.3rem;
+}
+
+.cred-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--ink);
+  line-height: 1.4;
+  margin-bottom: 0.3rem;
+}
+
+.cred-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.cred-date {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: var(--ink-muted);
+}
+
+.cred-verify {
+  font-family: 'Courier Prime', monospace;
+  font-size: 9px;
+  color: var(--red);
+  text-decoration: none;
+  border-bottom: 1px solid var(--red);
+  opacity: 0.7;
+  transition: opacity 0.15s;
+}
+.cred-verify:hover { opacity: 1; }
+
+/* ─── ABOUT / FOOTER ─── */
+#about { padding: 2rem 0; border-top: 1px solid var(--rule); }
+
+.about-cols {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.about-text {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.about-text p + p { margin-top: 1rem; text-indent: 1.5em; }
+
+.about-contact { }
+
+.contact-head {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 0.4rem;
+  margin-bottom: 0.8rem;
+}
+
+.contact-item {
+  display: block;
+  font-family: 'Courier Prime', monospace;
+  font-size: 11px;
+  color: var(--ink-muted);
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  line-height: 2;
+  transition: color 0.15s;
+}
+.contact-item:hover { color: var(--red); }
+
+/* ─── COLOPHON ─── */
+.colophon {
+  border-top: 3px double var(--rule-dark);
+  padding: 1rem 0;
+  margin-top: 2.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.colophon-text {
+  font-family: 'Courier Prime', monospace;
+  font-size: 10px;
+  color: var(--ink-faint);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.masthead-title { animation: fadeIn 0.6s ease 0.1s both; }
+.masthead-subtitle { animation: fadeIn 0.6s ease 0.25s both; }
+.hero { animation: fadeIn 0.6s ease 0.35s both; }
+
+/* ─── MOBILE ─── */
+@media (max-width: 640px) {
+  .masthead-top { flex-direction: column; align-items: center; gap: 0.3rem; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding-right: 0; border-right: none; border-bottom: 1px solid var(--rule); padding-bottom: 1.5rem; margin-bottom: 1.5rem; }
+  .hero-right { padding-left: 0; }
+  .projects-cols { grid-template-columns: 1fr; }
+  .project-item:nth-child(even) { padding-left: 0; border-left: none; }
+  .project-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--rule); }
+  .project-item:last-child { border-bottom: none; }
+  .skills-cols { grid-template-columns: 1fr 1fr; }
+  .creds-grid { grid-template-columns: 1fr 1fr; }
+  .cred-item:nth-child(3n) { border-right: 1px solid var(--rule); }
+  .cred-item:nth-child(2n) { border-right: none; }
+  .skill-col:nth-child(odd) { padding-left: 0; border-right: 1px solid var(--rule); }
+  .skill-col:nth-child(even) { border-right: none; padding-left: 1rem; }
+  .about-cols { grid-template-columns: 1fr; }
+  .nav-inner { gap: 1.25rem; flex-wrap: wrap; }
+  .masthead-band { font-size: 9px; letter-spacing: 0.06em; }
+}
+</style>
+</head>
+<body>
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="masthead-top">
+    <div class="masthead-meta">Vol. I, No. 1 &nbsp;·&nbsp; Mumbai, India</div>
+    <div class="masthead-meta">Est. 2026 &nbsp;·&nbsp; Open to Internships</div>
+  </div>
+  <div class="masthead-title">Tanish Saroj</div>
+  <div class="masthead-subtitle">AI Engineer &nbsp;·&nbsp; Agent Builder &nbsp;·&nbsp; SIH 2025 National Winner</div>
+  <div class="masthead-rule-wrap">
+    <div class="masthead-band">Python &nbsp;·&nbsp; LangChain &nbsp;·&nbsp; PyTorch &nbsp;·&nbsp; FastAPI &nbsp;·&nbsp; Groq &nbsp;·&nbsp; HuggingFace &nbsp;·&nbsp; Docker &nbsp;·&nbsp; QLoRA</div>
+  </div>
+</header>
+
+<!-- NAV -->
+<nav>
+  <ul class="nav-inner">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#credentials">Credentials</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-kicker">Profile</div>
+      <h1 class="hero-headline">Building systems<br>that <em>think</em> and act<br>on their own.</h1>
+      <p class="hero-body">
+        Final-year Computer Science student at Theem College of Engineering, Mumbai. Every project I have shipped is an autonomous agent — a drone swarm that defends airspace, a code reviewer that watches every commit, a data analyst that speaks plain English. The pattern is not accidental.
+      </p>
+      <div class="byline">
+        By Tanish Saroj &nbsp;·&nbsp; <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="abdfcac5c2d8c3d8cad9c4c19d9c939aebccc6cac2c785c8c4c6">[email&#160;protected]</a> &nbsp;·&nbsp; github.com/GitTanish
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="award-box">
+        <div class="award-box-label">🏆 Achievement</div>
+        <div class="award-box-text">Winner — Smart India Hackathon 2025. 1st rank nationwide. Problem Statement #25164 for Bharat Electronics Limited.</div>
+      </div>
+
+      <div class="fact-block">
+        <div class="fact-label">Academic Standing</div>
+        <div class="fact-value">8+ GPA</div>
+        <div class="fact-sub">B.E. Computer Science, May 2026</div>
+      </div>
+
+      <div class="fact-block">
+        <div class="fact-label">Projects Shipped</div>
+        <div class="fact-value">4 agents</div>
+        <div class="fact-sub">Drone defense · Code review · Data analyst · Fine-tuned LLM</div>
+      </div>
+
+      <div class="fact-block">
+        <div class="fact-label">Status</div>
+        <div class="fact-value" style="font-size:1.1rem;">Seeking internship</div>
+        <div class="fact-sub">AI/LLM Engineering · Mumbai</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="section-head">
+      <span class="section-title">Works & Projects</span>
+      <span class="section-num">Four agents shipped</span>
+    </div>
+
+    <div class="projects-cols">
+
+      <div class="project-item">
+        <div class="proj-kicker">Defense AI · Simulation</div>
+        <div class="proj-name">
+          SimAstra
+          <span class="proj-badge">SIH Winner</span>
+        </div>
+        <div class="proj-stack">Python · PyBullet · Swarm Algorithms · NumPy</div>
+        <p class="proj-desc">
+          Autonomous drone defense system built for Bharat Electronics Limited. A decentralised Hunter-Killer algorithm lets drone swarms detect, prioritise, and neutralise adversarial threats without any central controller — validated across 100+ combat scenarios.
+        </p>
+        <div class="proj-links">
+          <span class="proj-link" style="cursor:default; opacity:0.5;">🔒 Closed source</span>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-kicker">LLM Agent · Developer Tool</div>
+        <div class="proj-name">Heimdall</div>
+        <div class="proj-stack">Python · FastAPI · Groq API · Llama 3 70B · Docker</div>
+        <p class="proj-desc">
+          AI code guardian that hooks into GitHub via webhooks. Every push triggers Llama 3 70B analysis — bugs are flagged, tests suggested, docs drafted and posted as commit comments automatically.
+        </p>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/GitTanish/Heimdall" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-kicker">LLM Agent · Data Tool · Live</div>
+        <div class="proj-name">Insight</div>
+        <div class="proj-stack">Python · LangChain · Streamlit · Groq API · Llama 3</div>
+        <p class="proj-desc">
+          Natural language data analyst. Upload a CSV, ask questions in plain English — it executes Python, generates charts, surfaces statistical patterns in real time. Handles up to 1 million rows via a sandboxed LangChain Pandas Agent.
+        </p>
+        <div class="proj-links">
+          <a class="proj-link live" href="https://insight-fu5wbht5hsnamabyvghkvt.streamlit.app/" target="_blank">Live demo ↗</a>
+          <a class="proj-link" href="https://github.com/GitTanish/Insight" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+      <div class="project-item">
+        <div class="proj-kicker">Fine-tuning · NLP</div>
+        <div class="proj-name">Persona-Adaptive QA Bot</div>
+        <div class="proj-stack">PyTorch · QLoRA · Hugging Face · Phi-3 · PEFT</div>
+        <p class="proj-desc">
+          Fine-tuned Microsoft Phi-3-mini (3.8B) using QLoRA to adapt response style by user persona — Student versus Expert. 67% adaptation rate, 52% factual accuracy. Entire pipeline runs on a free T4 GPU at zero cost via 4-bit quantisation.
+        </p>
+        <div class="proj-links">
+          <a class="proj-link" href="https://github.com/GitTanish/persona-adaptive-qa-bot" target="_blank">GitHub →</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="section-head">
+      <span class="section-title">Technical Skills</span>
+      <span class="section-num">Stack</span>
+    </div>
+    <div class="skills-cols">
+      <div class="skill-col">
+        <div class="skill-head">Languages</div>
+        <span class="skill-item">Python</span>
+        <span class="skill-item">SQL (PostgreSQL)</span>
+        <span class="skill-item">C++</span>
+      </div>
+      <div class="skill-col">
+        <div class="skill-head">AI / ML</div>
+        <span class="skill-item">PyTorch</span>
+        <span class="skill-item">LangChain</span>
+        <span class="skill-item">Hugging Face</span>
+        <span class="skill-item">QLoRA · PEFT</span>
+        <span class="skill-item">LightGBM</span>
+      </div>
+      <div class="skill-col">
+        <div class="skill-head">Backend & Infra</div>
+        <span class="skill-item">FastAPI</span>
+        <span class="skill-item">Docker</span>
+        <span class="skill-item">Git</span>
+        <span class="skill-item">Postman</span>
+      </div>
+      <div class="skill-col">
+        <div class="skill-head">Libraries</div>
+        <span class="skill-item">Pandas · NumPy</span>
+        <span class="skill-item">Scikit-learn</span>
+        <span class="skill-item">Streamlit</span>
+        <span class="skill-item">Matplotlib</span>
+        <span class="skill-item">PyBullet</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <div class="section-head">
+      <span class="section-title">Credentials & Certifications</span>
+      <span class="section-num">Verified</span>
+    </div>
+    <div class="creds-grid">
+
+      <div class="cred-item">
+        <div class="cred-issuer">Anthropic</div>
+        <div class="cred-name">Introduction to Model Context Protocol</div>
+        <div class="cred-foot">
+          <span class="cred-date">Mar 2026</span>
+          <a class="cred-verify" href="https://verify.skilljar.com/c/ikatxt9pztsm" target="_blank">verify ↗</a>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <div class="cred-issuer">IBM SkillsBuild</div>
+        <div class="cred-name">Artificial Intelligence Fundamentals</div>
+        <div class="cred-foot">
+          <span class="cred-date">Oct 2025</span>
+          <a class="cred-verify" href="https://www.credly.com/badges/fae0d972-c580-46ba-b3a3-2643b69fbe7e" target="_blank">verify ↗</a>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <div class="cred-issuer">IBM SkillsBuild</div>
+        <div class="cred-name">AI-Enabled Applications for Customer Service</div>
+        <div class="cred-foot">
+          <span class="cred-date">Jan 2026</span>
+          <a class="cred-verify" href="https://www.credly.com/go/4pBKv53j" target="_blank">verify ↗</a>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <div class="cred-issuer">AWS Academy</div>
+        <div class="cred-name">Cloud Foundations</div>
+        <div class="cred-foot">
+          <span class="cred-date">Mar 2025</span>
+          <a class="cred-verify" href="https://www.credly.com/go/5tKjCmR2" target="_blank">verify ↗</a>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <div class="cred-issuer">AWS Academy</div>
+        <div class="cred-name">Cloud Web Application Builder</div>
+        <div class="cred-foot">
+          <span class="cred-date">Apr 2025</span>
+          <a class="cred-verify" href="https://www.credly.com/go/XzLlXyqz" target="_blank">verify ↗</a>
+        </div>
+      </div>
+
+      <div class="cred-item">
+        <div class="cred-issuer">AWS Academy</div>
+        <div class="cred-name">Data Engineering</div>
+        <div class="cred-foot">
+          <span class="cred-date">Oct 2025</span>
+          <a class="cred-verify" href="https://www.credly.com/go/6NktxWAT" target="_blank">verify ↗</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ABOUT + CONTACT -->
+  <section id="about">
+    <div class="section-head">
+      <span class="section-title">About</span>
+      <span class="section-num">Mumbai, India</span>
+    </div>
+    <div class="about-cols">
+      <div class="about-text">
+        <p>
+          I am a final-year Computer Science student at Theem College of Engineering, graduating in May 2026. I have spent the last two years obsessing over one question: how do you make software that can reason, plan, and act on its own?
+        </p>
+        <p>
+          Every project I have built is an answer to that question from a different angle — defence systems, developer tooling, data analysis, and language model alignment. The common thread is agency: systems that do not wait to be told what to do next.
+        </p>
+        <p>
+          I am looking for an AI or LLM engineering internship in Mumbai where I can contribute to a team building real products. I work best where the problems are hard and the feedback loop is short.
+        </p>
+      </div>
+
+      <div id="contact" class="about-contact">
+        <div class="contact-head">Get in touch</div>
+        <a class="contact-item" href="/cdn-cgi/l/email-protection#a5d1c4cbccd6cdd6c4d7cacf93929d94e5c2c8c4ccc98bc6cac8"><span class="__cf_email__" data-cfemail="3c485d52554f544f5d4e53560a0b040d7c5b515d5550125f5351">[email&#160;protected]</span></a>
+        <a class="contact-item" href="tel:+917269087920">+91 72690 87920</a>
+        <a class="contact-item" href="https://linkedin.com/in/tanishsaroj" target="_blank">linkedin.com/in/tanishsaroj</a>
+        <a class="contact-item" href="https://github.com/GitTanish" target="_blank">github.com/GitTanish</a>
+      </div>
+    </div>
+  </sectio
