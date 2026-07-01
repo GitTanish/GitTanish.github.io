@@ -671,12 +671,12 @@
   <header class="masthead">
     <div class="masthead-top">
       <div class="masthead-meta">Vol. I, No. 1 &nbsp;·&nbsp; Mumbai, India</div>
-      <div class="masthead-meta">Est. 2026 &nbsp;·&nbsp; Open to Internships</div>
+      <div class="masthead-meta">Est. 2026</div>
     </div>
     <div class="masthead-title">Tanish Saroj</div>
     <div class="masthead-subtitle">AI Engineer &nbsp;·&nbsp; Agent Builder &nbsp;·&nbsp; SIH 2025 National Winner</div>
     <div class="masthead-rule-wrap">
-      <div class="masthead-band">Python &nbsp;·&nbsp; LangChain &nbsp;·&nbsp; PyTorch &nbsp;·&nbsp; FastAPI
+      <div class="masthead-band">Python &nbsp;·&nbsp; LangChain &nbsp;·&nbsp; LangGraph &nbsp;·&nbsp; PyTorch &nbsp;·&nbsp; FastAPI
         &nbsp;·&nbsp; Groq &nbsp;·&nbsp; HuggingFace &nbsp;·&nbsp; Docker &nbsp;·&nbsp; QLoRA</div>
     </div>
   </header>
@@ -701,10 +701,10 @@
         <p class="hero-body">
           Final-year Computer Science student at Theem College of Engineering, Mumbai. Every project I have shipped is
           an autonomous agent — a drone swarm that defends airspace, a code reviewer that watches every commit, a data
-          analyst that speaks plain English. The pattern is not accidental.
+          analyst that speaks plain English, a RAG pipeline that second-guesses itself. The pattern is not accidental.
         </p>
         <div class="byline">
-          By Tanish Saroj &nbsp;·&nbsp; <a href="mailto:tanishsaroj@gmail.com">tanishsaroj@gmail.com</a> &nbsp;·&nbsp;
+          By Tanish Saroj &nbsp;·&nbsp; <a href="mailto:tanishsaroj6781@gmail.com">tanishsaroj6781@gmail.com</a> &nbsp;·&nbsp;
           github.com/GitTanish
         </div>
       </div>
@@ -718,14 +718,14 @@
 
         <div class="fact-block">
           <div class="fact-label">Academic Standing</div>
-          <div class="fact-value">8.5 GPA</div>
+          <div class="fact-value">8.2 GPA</div>
           <div class="fact-sub">B.E. Computer Science, May 2026</div>
         </div>
 
         <div class="fact-block">
           <div class="fact-label">Projects Shipped</div>
-          <div class="fact-value">4 agents</div>
-          <div class="fact-sub">Drone defense · Code review · Data analyst · Fine-tuned LLM</div>
+          <div class="fact-value">5 agents</div>
+          <div class="fact-sub">Drone defense · Code review · Data analyst · Corrective RAG · Fine-tuned LLM</div>
         </div>
 
         <div class="fact-block">
@@ -742,7 +742,7 @@
     <section id="projects">
       <div class="section-head">
         <span class="section-title">Works & Projects</span>
-        <span class="section-num">Four agents shipped</span>
+        <span class="section-num">Five agents shipped</span>
       </div>
 
       <div class="projects-cols">
@@ -793,6 +793,21 @@
         </div>
 
         <div class="project-item">
+          <div class="proj-kicker">Retrieval-Augmented Generation</div>
+          <div class="proj-name">K-State</div>
+          <div class="proj-stack">Python · LangGraph · FAISS · GPT-OSS 120B via Groq</div>
+          <p class="proj-desc">
+            Corrective RAG that doesn't trust its own retriever. Retrieved chunks are scored independently before
+            reaching the LLM — strong matches go straight to generation, weak or mixed ones trigger a live web-search
+            fallback. A sentence-level refiner filters every path before generation, and the system answers "I don't
+            know" rather than hallucinate when context comes up empty.
+          </p>
+          <div class="proj-links">
+            <a class="proj-link" href="https://github.com/GitTanish/K-STATE" target="_blank">GitHub →</a>
+          </div>
+        </div>
+
+        <div class="project-item">
           <div class="proj-kicker">Fine-tuning · NLP</div>
           <div class="proj-name">Persona-Adaptive QA Bot</div>
           <div class="proj-stack">PyTorch · QLoRA · Hugging Face · Phi-3 · PEFT</div>
@@ -827,6 +842,7 @@
           <div class="skill-head">AI / ML</div>
           <span class="skill-item">PyTorch</span>
           <span class="skill-item">LangChain</span>
+          <span class="skill-item">LangGraph</span>
           <span class="skill-item">Hugging Face</span>
           <span class="skill-item">QLoRA · PEFT</span>
           <span class="skill-item">LightGBM</span>
@@ -842,6 +858,7 @@
           <div class="skill-head">Libraries</div>
           <span class="skill-item">Pandas · NumPy</span>
           <span class="skill-item">Scikit-learn</span>
+          <span class="skill-item">FAISS</span>
           <span class="skill-item">Streamlit</span>
           <span class="skill-item">Matplotlib</span>
           <span class="skill-item">PyBullet</span>
@@ -864,8 +881,8 @@
           </p>
           <p>
             Every project I have built is an answer to that question from a different angle — defence systems, developer
-            tooling, data analysis, and language model alignment. The common thread is agency: systems that do not wait
-            to be told what to do next.
+            tooling, data analysis, retrieval-augmented generation, and language model alignment. The common thread is
+            agency: systems that do not wait to be told what to do next.
           </p>
           <p>
             I work best where the problems are hard and the feedback loop is short.
