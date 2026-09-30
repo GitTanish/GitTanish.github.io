@@ -7,7 +7,17 @@
   <title>Tanish Saroj — AI Engineer</title>
   <meta name="description"
     content="Tanish Saroj — AI/LLM Engineer. SIH 2025 National Winner. Building autonomous AI agents. Mumbai.">
+  <meta name="author" content="Tanish Saroj">
+  <meta name="theme-color" content="#f2ead8">
+  <link rel="canonical" href="https://gittanish.github.io/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tanish Saroj — AI Engineer">
+  <meta property="og:description"
+    content="SIH 2025 National Winner. Building autonomous AI agents that plan, verify, and act on their own.">
+  <meta property="og:url" content="https://gittanish.github.io/">
+  <meta name="twitter:card" content="summary">
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Courier+Prime:wght@400;700&display=swap"
     rel="stylesheet">
@@ -27,12 +37,11 @@
       --paper-mid: #ede4cc;
       --ink: #1c1812;
       --ink-soft: #3d3628;
-      --ink-muted: #7a6f5e;
-      --ink-faint: #a89f8c;
+      --ink-muted: #5f5748;
+      --ink-faint: #6b6152;
       --rule: #c4b99a;
       --rule-dark: #a89270;
       --red: #8b1a1a;
-      --red-light: #b02020;
     }
 
     html {
@@ -106,6 +115,7 @@
       line-height: 1;
       color: var(--ink);
       margin-bottom: 0.3rem;
+      animation: fadeIn 0.6s ease 0.1s both;
     }
 
     .masthead-subtitle {
@@ -115,6 +125,7 @@
       color: var(--ink-soft);
       letter-spacing: 0.06em;
       margin-bottom: 0.9rem;
+      animation: fadeIn 0.6s ease 0.25s both;
     }
 
     .masthead-rule-wrap {
@@ -162,6 +173,31 @@
 
     nav a:hover {
       color: var(--red);
+    }
+
+    /* ─── FOCUS ─── */
+    a:focus-visible {
+      outline: 2px solid var(--red);
+      outline-offset: 3px;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: -9999px;
+      top: 0;
+      z-index: 1000;
+      background: var(--ink);
+      color: var(--paper);
+      font-family: 'Courier Prime', monospace;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.6rem 1rem;
+      text-decoration: none;
+    }
+
+    .skip-link:focus {
+      left: 0;
     }
 
     /* ─── LAYOUT ─── */
@@ -267,6 +303,18 @@
       border-top: 1px solid var(--rule);
       padding-top: 0.6rem;
       margin-top: 0.8rem;
+    }
+
+    .byline a {
+      color: var(--ink-soft);
+      text-decoration: underline;
+      text-decoration-color: var(--rule-dark);
+      text-underline-offset: 2px;
+    }
+
+    .byline a:hover {
+      color: var(--red);
+      text-decoration-color: var(--red);
     }
 
     /* Hero right — facts column */
@@ -426,11 +474,6 @@
       border-color: var(--red);
     }
 
-    .proj-link.live {
-      color: var(--red-light);
-      border-color: var(--red-light);
-    }
-
     /* ─── SKILLS ─── */
     #skills {
       padding: 2rem 0;
@@ -451,11 +494,9 @@
     .skill-col:last-child {
       border-right: none;
       padding-right: 0;
-      padding-left: 1.25rem;
     }
 
-    .skill-col:nth-child(2),
-    .skill-col:nth-child(3) {
+    .skill-col:not(:first-child) {
       padding-left: 1.25rem;
     }
 
@@ -499,8 +540,6 @@
       margin-top: 1rem;
       text-indent: 1.5em;
     }
-
-    .about-contact {}
 
     .contact-head {
       font-family: 'Playfair Display', serif;
@@ -568,6 +607,12 @@
       animation: pulse 2.5s ease-in-out infinite;
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .commit-dot {
+        animation: none;
+      }
+    }
+
     /* ─── ANIMATIONS ─── */
     @keyframes fadeIn {
       from {
@@ -581,16 +626,24 @@
       }
     }
 
-    .masthead-title {
-      animation: fadeIn 0.6s ease 0.1s both;
-    }
-
-    .masthead-subtitle {
-      animation: fadeIn 0.6s ease 0.25s both;
-    }
-
     .hero {
       animation: fadeIn 0.6s ease 0.35s both;
+    }
+
+    /* Respect users who ask for reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
     }
 
     /* ─── MOBILE ─── */
@@ -638,14 +691,20 @@
         grid-template-columns: 1fr 1fr;
       }
 
-      .skill-col:nth-child(odd) {
+      .skill-col,
+      .skill-col:not(:first-child) {
         padding-left: 0;
+        padding-right: 0;
+      }
+
+      .skill-col:nth-child(odd) {
+        padding-right: 1rem;
         border-right: 1px solid var(--rule);
       }
 
       .skill-col:nth-child(even) {
-        border-right: none;
         padding-left: 1rem;
+        border-right: none;
       }
 
       .about-cols {
@@ -667,6 +726,8 @@
 
 <body>
 
+  <a class="skip-link" href="#projects">Skip to content</a>
+
   <!-- MASTHEAD -->
   <header class="masthead">
     <div class="masthead-top">
@@ -676,13 +737,13 @@
     <div class="masthead-title">Tanish Saroj</div>
     <div class="masthead-subtitle">AI Engineer &nbsp;·&nbsp; Agent Builder &nbsp;·&nbsp; SIH 2025 National Winner</div>
     <div class="masthead-rule-wrap">
-      <div class="masthead-band">Python &nbsp;·&nbsp; LangChain &nbsp;·&nbsp; LangGraph &nbsp;·&nbsp; PyTorch &nbsp;·&nbsp; FastAPI
+      <div class="masthead-band">Python &nbsp;·&nbsp; LangGraph &nbsp;·&nbsp; FastAPI &nbsp;·&nbsp; PyTorch &nbsp;·&nbsp; DuckDB
         &nbsp;·&nbsp; Groq &nbsp;·&nbsp; HuggingFace &nbsp;·&nbsp; Docker &nbsp;·&nbsp; QLoRA</div>
     </div>
   </header>
 
   <!-- NAV -->
-  <nav>
+  <nav aria-label="Section navigation">
     <ul class="nav-inner">
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -701,10 +762,11 @@
         <p class="hero-body">
           Final-year Computer Science student at Theem College of Engineering, Mumbai. Every project I have shipped is
           an autonomous agent — a drone swarm that defends airspace, a code reviewer that watches every commit, a data
-          analyst that speaks plain English, a RAG pipeline that second-guesses itself. The pattern is not accidental.
+          analyst that refuses to invent numbers, a RAG pipeline that second-guesses itself. The pattern is not
+          accidental.
         </p>
         <div class="byline">
-          By Tanish Saroj &nbsp;·&nbsp; <a href="mailto:tanishsaroj6781@gmail.com">tanishsaroj6781@gmail.com</a> &nbsp;·&nbsp;
+          By Tanish Saroj &nbsp;·&nbsp; <a href="mailto:tanish.me@outlook.com">tanish.me@outlook.com</a> &nbsp;·&nbsp;
           github.com/GitTanish
         </div>
       </div>
@@ -773,37 +835,38 @@
             flagged, tests suggested, docs drafted and posted as commit comments automatically.
           </p>
           <div class="proj-links">
-            <a class="proj-link" href="https://github.com/GitTanish/Heimdall" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://github.com/GitTanish/Heimdall" target="_blank" rel="noopener noreferrer">GitHub →</a>
           </div>
         </div>
 
         <div class="project-item">
-          <div class="proj-kicker">LLM Agent · Data Tool · Live</div>
+          <div class="proj-kicker">Verified Analytics Agent</div>
           <div class="proj-name">Insight</div>
-          <div class="proj-stack">Python · LangChain · Streamlit · Groq API · Llama 3</div>
+          <div class="proj-stack">Python · FastAPI · Pandas · SciPy · DuckDB · Groq API</div>
           <p class="proj-desc">
-            Natural language data analyst. Upload a CSV, ask questions in plain English — it executes Python, generates
-            charts, surfaces statistical patterns in real time. Handles up to 1 million rows via a sandboxed LangChain
-            Pandas Agent.
+            The LLM is not the analytics engine. A planner emits a schema-validated JSON plan; a deterministic
+            pandas/scipy/DuckDB engine runs 15 fixed operations, and every headline number is independently recomputed
+            through a second arithmetic path before it is shown. No model-written code, no invented numbers — 20/20
+            golden-question cases pass, and 250K rows profile in 2.0s.
           </p>
           <div class="proj-links">
-            <a class="proj-link live" href="https://the-insight-ai.streamlit.app/" target="_blank">Live demo ↗</a>
-            <a class="proj-link" href="https://github.com/GitTanish/Insight" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://github.com/GitTanish/Insight" target="_blank" rel="noopener noreferrer">GitHub
+              →</a>
           </div>
         </div>
 
         <div class="project-item">
           <div class="proj-kicker">Retrieval-Augmented Generation</div>
           <div class="proj-name">K-State</div>
-          <div class="proj-stack">Python · LangGraph · FAISS · GPT-OSS 120B via Groq</div>
+          <div class="proj-stack">Python · LangGraph · FAISS · BM25 + RRF · Redis · GPT-OSS 120B</div>
           <p class="proj-desc">
-            Corrective RAG that doesn't trust its own retriever. Retrieved chunks are scored independently before
-            reaching the LLM — strong matches go straight to generation, weak or mixed ones trigger a live web-search
-            fallback. A sentence-level refiner filters every path before generation, and the system answers "I don't
-            know" rather than hallucinate when context comes up empty.
+            Corrective RAG that doesn't trust its own retriever. Dense FAISS and sparse BM25 are fused with RRF, then an
+            LLM judge scores every chunk before it reaches the generator — strong matches go straight to generation, weak
+            or mixed ones trigger a multi-turn agentic web search. A sentence-level refiner filters every path, and the
+            system says "I don't know" rather than hallucinate when context comes up empty.
           </p>
           <div class="proj-links">
-            <a class="proj-link" href="https://github.com/GitTanish/K-STATE" target="_blank">GitHub →</a>
+            <a class="proj-link" href="https://github.com/GitTanish/K-STATE" target="_blank" rel="noopener noreferrer">GitHub →</a>
           </div>
         </div>
 
@@ -817,7 +880,7 @@
             4-bit quantisation.
           </p>
           <div class="proj-links">
-            <a class="proj-link" href="https://github.com/GitTanish/persona-adaptive-qa-bot" target="_blank">GitHub
+            <a class="proj-link" href="https://github.com/GitTanish/persona-adaptive-qa-bot" target="_blank" rel="noopener noreferrer">GitHub
               →</a>
           </div>
         </div>
@@ -856,9 +919,9 @@
         </div>
         <div class="skill-col">
           <div class="skill-head">Libraries</div>
-          <span class="skill-item">Pandas · NumPy</span>
+          <span class="skill-item">Pandas · NumPy · SciPy</span>
+          <span class="skill-item">DuckDB · FAISS</span>
           <span class="skill-item">Scikit-learn</span>
-          <span class="skill-item">FAISS</span>
           <span class="skill-item">Streamlit</span>
           <span class="skill-item">Matplotlib</span>
           <span class="skill-item">PyBullet</span>
@@ -891,11 +954,11 @@
 
         <div id="contact" class="about-contact">
           <div class="contact-head">Get in touch</div>
-          <a class="contact-item" href="mailto:tanishsaroj6781@gmail.com">tanishsaroj6781@gmail.com</a>
+          <a class="contact-item" href="mailto:tanish.me@outlook.com">tanish.me@outlook.com</a>
           <a class="contact-item" href="tel:+917269087920">+91 72690 87920</a>
           <a class="contact-item" href="https://linkedin.com/in/tanishsaroj"
-            target="_blank">linkedin.com/in/tanishsaroj</a>
-          <a class="contact-item" href="https://github.com/GitTanish" target="_blank">github.com/GitTanish</a>
+            target="_blank" rel="noopener noreferrer">linkedin.com/in/tanishsaroj</a>
+          <a class="contact-item" href="https://github.com/GitTanish" target="_blank" rel="noopener noreferrer">github.com/GitTanish</a>
         </div>
       </div>
     </section>
@@ -911,28 +974,46 @@
   <script>
     // Fetch last commit time from GitHub API — self-contained, fails silently
     (async () => {
+      const el = document.getElementById('last-commit');
+      if (!el) return;
+
+      const relative = date => {
+        const diffMs = Date.now() - date;
+        const mins = Math.floor(diffMs / 60000);
+        const hours = Math.floor(diffMs / 3600000);
+        const days = Math.floor(diffMs / 86400000);
+
+        if (mins < 60) return mins <= 1 ? 'just now' : `${mins} minutes ago`;
+        if (hours < 24) return hours === 1 ? '1 hour ago' : `${hours} hours ago`;
+        if (days === 1) return 'yesterday';
+        if (days < 30) return `${days} days ago`;
+        return date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+      };
+
+      // Most recently pushed public repo, then its latest commit on the default branch.
+      // Two steps because /users/:u/events omits pushes and is not reliably ordered.
       try {
-        const res = await fetch('https://api.github.com/users/GitTanish/events/public');
-        if (!res.ok) return;
-        const events = await res.json();
-        const pushEvent = events.find(e => e.type === 'PushEvent');
-        if (!pushEvent) return;
+        const opts = { headers: { Accept: 'application/vnd.github+json' } };
 
-        const date = new Date(pushEvent.created_at);
-        const now = new Date();
-        const diffMs = now - date;
-        const diffMins = Math.floor(diffMs / 60000);
-        const diffHours = Math.floor(diffMs / 3600000);
-        const diffDays = Math.floor(diffMs / 86400000);
+        const reposRes = await fetch(
+          'https://api.github.com/users/GitTanish/repos?sort=pushed&direction=desc&per_page=1',
+          opts
+        );
+        if (!reposRes.ok) return;
 
-        let label;
-        if (diffMins < 60) label = diffMins <= 1 ? 'just now' : `${diffMins} minutes ago`;
-        else if (diffHours < 24) label = diffHours === 1 ? '1 hour ago' : `${diffHours} hours ago`;
-        else if (diffDays === 1) label = 'yesterday';
-        else if (diffDays < 30) label = `${diffDays} days ago`;
-        else label = date.toLocaleDateString('en-GB', { month: 'short', year: 'numeric' });
+        const [repo] = await reposRes.json();
+        if (!repo) return;
 
-        document.getElementById('last-commit').textContent = label;
+        const commitRes = await fetch(
+          `https://api.github.com/repos/${repo.full_name}/commits?per_page=1`,
+          opts
+        );
+        if (!commitRes.ok) return;
+
+        const [commit] = await commitRes.json();
+        if (!commit) return;
+
+        el.textContent = relative(new Date(commit.commit.author.date));
       } catch (e) {
         // fail silently — placeholder dash remains
       }
